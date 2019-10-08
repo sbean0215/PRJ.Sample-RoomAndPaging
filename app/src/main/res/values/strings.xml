@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">PushNotiTest</string>
+    <string name="app_name">Push Test</string>
+
+    <string name="entrance_user_select_info">테스트를 진행할 가상의 유저 추가 및 삭제</string>
+    <string name="entrance_user_delete">Delete this user</string>
+    <string name="entrance_user_add">Add new User</string>
+
+    <string name="entrance_btn_go_to_push_test">Go to Push Test</string>
+    <string name="entrance_btn_add_new_user">ADD use user</string>
+    <string name="entrance_et_hing_input_user_name">User Name</string>
+
 </resources>
