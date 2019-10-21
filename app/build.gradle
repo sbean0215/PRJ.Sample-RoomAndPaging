@@ -39,7 +39,11 @@ dependencies {
     
     /* google services */
     implementation 'com.google.firebase:firebase-messaging:17.6.0'
-
+    
+    /* Lifecycle AAC */
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0-beta01'
+    annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.0.0-beta01'
+    
     /* dagger2 */
     annotationProcessor 'com.google.dagger:dagger-compiler:2.18'
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.18'
