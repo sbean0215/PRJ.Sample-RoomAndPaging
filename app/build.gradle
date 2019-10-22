@@ -19,12 +19,18 @@ android {
     dataBinding {
         enabled = true
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    /* Testing */
     testImplementation 'junit:junit:4.12'
-   
+    androidTestImplementation 'org.mockito:mockito-android:2.28.2'
+
     /* Espresso framework */
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test:rules:1.2.0'
@@ -51,6 +57,12 @@ dependencies {
     implementation 'com.google.dagger:dagger-android-support:2.18'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
     
+    /* Room */
+    implementation 'androidx.room:room-runtime:2.2.0'
+    annotationProcessor 'androidx.room:room-compiler:2.2.0'
+    implementation 'androidx.room:room-rxjava2:2.2.0'
+    testImplementation 'androidx.room:room-testing:2.2.0'   // Test helpers
+
 }
 
 apply plugin: 'com.google.gms.google-services'
