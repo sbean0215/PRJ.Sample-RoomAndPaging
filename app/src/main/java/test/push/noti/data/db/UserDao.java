@@ -15,14 +15,13 @@ import java.util.List;
 public interface UserDao {
 
     @Insert
-    public void insertUser(User user);
+    public Completable insertUser(User user);
 
     @Delete
     public void deleteUser(User user);
 
     @Query("SELECT * FROM users")
     public LiveData<List<User>> loadAllUsersWithLive();
-
 
     @Query("SELECT * FROM users")
     public List<User> loadAllUsers();
