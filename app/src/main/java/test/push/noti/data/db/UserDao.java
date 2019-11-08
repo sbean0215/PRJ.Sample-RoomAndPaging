@@ -1,11 +1,14 @@
 package test.push.noti.data.db;
 
 import androidx.lifecycle.LiveData;
+import androidx.paging.DataSource;
+import androidx.paging.PagedList;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import io.reactivex.Completable;
+import io.reactivex.Observable;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -22,6 +25,9 @@ public interface UserDao {
 
     @Query("SELECT * FROM users")
     public LiveData<List<User>> loadAllUsersWithLive();
+
+    @Query("SELECT * FROM users")
+    public DataSource.Factory<Integer, User> loadAllUsersWithPL();
 
     @Query("SELECT * FROM users")
     public List<User> loadAllUsers();

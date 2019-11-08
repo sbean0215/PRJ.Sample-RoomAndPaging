@@ -1,15 +1,29 @@
 package test.push.noti.ui;
 
 import android.content.Intent;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.lifecycle.Observer;
+import androidx.paging.DataSource;
+import androidx.paging.PagedList;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import test.push.noti.BR;
 import test.push.noti.R;
 import test.push.noti.base.BaseActivity;
+import test.push.noti.data.db.User;
+import test.push.noti.databinding.ActivityEntranceBinding;
+
+import javax.inject.Inject;
 
 public class EntranceActivity extends BaseActivity {
 
-    ViewDataBinding binding;
+    @Inject
+    EntranceActivityViewModel viewModel;
+
+    ActivityEntranceBinding binding;
 
 
     @Override
@@ -21,6 +35,16 @@ public class EntranceActivity extends BaseActivity {
     public void initView() {
         binding = DataBindingUtil.setContentView(this, getLayoutId());
         binding.setVariable(BR.activity, this);
+
+        final UserAdapter userAdapter = new UserAdapter();
+        viewModel.userList.observe(this, new Observer<PagedList<User>>() {
+            @Override
+            public void onChanged(PagedList<User> users) {
+                userAdapter.submitList(users);
+            }
+        });
+        binding.rvUserList.setAdapter(userAdapter);
+        binding.rvUserList.setLayoutManager(new LinearLayoutManager(this));
 
     }
 

@@ -1,8 +1,11 @@
 package test.push.noti.data;
 
 import android.util.Log;
+import androidx.paging.DataSource;
+import androidx.paging.PagedList;
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
+import io.reactivex.Observable;
 import test.push.noti.data.db.AppDataBase;
 import test.push.noti.data.db.User;
 
@@ -31,5 +34,8 @@ public class AppRepository {
         return dataBase.getUserDao().loadAllUsers();
     }
 
+    public DataSource.Factory<Integer, User> getUserListForPaging() {
+        return dataBase.getUserDao().loadAllUsersWithPL();
+    }
 
 }
