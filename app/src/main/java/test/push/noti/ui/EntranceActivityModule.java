@@ -11,4 +11,9 @@ public class EntranceActivityModule {
     EntranceActivityViewModel provideEntranceActivityViewModel(AppRepository repository) {
         /* 임시 */ return new EntranceActivityViewModel(repository);
     }
+
+    @Provides
+    UserAdapter provideUserAdapter() {
+        return new UserAdapter();
+    }
 }

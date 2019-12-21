@@ -20,11 +20,10 @@ import javax.inject.Inject;
 
 public class EntranceActivity extends BaseActivity {
 
-    @Inject
-    EntranceActivityViewModel viewModel;
-
+    @Inject EntranceActivityViewModel viewModel;
     ActivityEntranceBinding binding;
 
+    @Inject public UserAdapter userAdapter;
 
     @Override
     public int getLayoutId() {
@@ -36,19 +35,19 @@ public class EntranceActivity extends BaseActivity {
         binding = DataBindingUtil.setContentView(this, getLayoutId());
         binding.setVariable(BR.activity, this);
 
-        final UserAdapter userAdapter = new UserAdapter();
         viewModel.userList.observe(this, new Observer<PagedList<User>>() {
             @Override
             public void onChanged(PagedList<User> users) {
                 userAdapter.submitList(users);
             }
         });
-        binding.rvUserList.setAdapter(userAdapter);
-        binding.rvUserList.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
     public void openAddNewUserActivity() {
         startActivity(new Intent(this, AddNewUserActivity.class));
+    }
+
+    public UserAdapter getRvAdapter() {
+        return userAdapter;
     }
 }

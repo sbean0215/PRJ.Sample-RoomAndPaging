@@ -58,7 +58,9 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"/>
+                android:layout_marginEnd="8dp"
+                android:adapter="@{activity.getRvAdapter()}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <View
                 android:id="@+id/view_center_line"
