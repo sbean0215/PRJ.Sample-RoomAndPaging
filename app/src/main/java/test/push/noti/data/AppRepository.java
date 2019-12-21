@@ -30,6 +30,10 @@ public class AppRepository {
         return dataBase.getUserDao().insertUser(user);
     }
 
+    public Completable deleteUserAtRoom(User user) {
+        return dataBase.getUserDao().deleteUser(user);
+    }
+
     public List<User> getUserListFromRoom () {
         return dataBase.getUserDao().loadAllUsers();
     }

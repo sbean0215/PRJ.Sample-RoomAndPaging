@@ -23,7 +23,10 @@ public class EntranceActivityViewModel extends ViewModel {
     @Inject
     public EntranceActivityViewModel(AppRepository appRepository) {
         this.appRepository = appRepository;
+        getUserList();
+    }
 
+    private void getUserList() {
 //        userList = new RxPagedListBuilder<>(appRepository.getUserListForPagingRx(), PAGING_ITEM)
 //                .buildObservable();
         userList = new LivePagedListBuilder<>(appRepository.getUserListForPaging(), PAGING_ITEM)
@@ -31,7 +34,7 @@ public class EntranceActivityViewModel extends ViewModel {
     }
 
     public void deleteUser(User user) {
-        appRepository.deleteUser(user);
+        appRepository.deleteUserAtRoom(user);
     }
 
 

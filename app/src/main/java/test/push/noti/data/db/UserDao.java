@@ -21,7 +21,7 @@ public interface UserDao {
     public Completable insertUser(User user);
 
     @Delete
-    public void deleteUser(User user);
+    public Completable deleteUser(User user);
 
     @Query("SELECT * FROM users")
     public LiveData<List<User>> loadAllUsersWithLive();
