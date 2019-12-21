@@ -6,24 +6,29 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import androidx.annotation.NonNull;
+import androidx.databinding.ViewDataBinding;
+import androidx.lifecycle.ViewModel;
 import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
 import test.push.noti.R;
 import test.push.noti.data.db.User;
+import test.push.noti.databinding.ItemUserBinding;
+
 
 public class UserAdapter extends PagedListAdapter<User, UserViewHolder> {
 
+    private User selectedUser;
+    private Integer positionOfSelectedUser;
 
     protected UserAdapter() {
         super(DIFF_CALLBACK);
     }
 
-
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new UserViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_user, parent, false));
+        ViewDataBinding binding = ItemUserBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
+        return new UserViewHolder(binding);
     }
 
     @Override
@@ -33,8 +38,30 @@ public class UserAdapter extends PagedListAdapter<User, UserViewHolder> {
         if(user == null) {
             holder.clear();
         } else {
-            holder.bindTo(user);
+            holder.bindTo(user, position, this);
         }
+    }
+
+    public void setSelected(User user, int atPosition) {
+        if (selectedUser != null) {
+            selectedUser.isSelected = false;
+            notifyItemChanged(positionOfSelectedUser);
+        }
+
+        user.isSelected = true;
+        notifyItemChanged(atPosition);
+
+        selectedUser = user;
+        positionOfSelectedUser = atPosition;
+    }
+
+    public User getSelectedUser() {
+        return selectedUser;
+    }
+
+    public void removeSelect() {
+        selectedUser = null;
+        positionOfSelectedUser = -1;
     }
 
     private static DiffUtil.ItemCallback<User> DIFF_CALLBACK = new DiffUtil.ItemCallback<User>() {
@@ -49,7 +76,5 @@ public class UserAdapter extends PagedListAdapter<User, UserViewHolder> {
             // 같은 객체 인지
             return oldItem.equals(newItem);
         }
-
-
     };
 }

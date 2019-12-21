@@ -59,8 +59,10 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:padding="10dp"
                 android:adapter="@{activity.getRvAdapter()}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:scrollbars="vertical"/>
 
         <View
                 android:id="@+id/view_center_line"
@@ -74,6 +76,7 @@
                 android:layout_marginEnd="8dp"/>
 
         <LinearLayout
+                android:onClick="@{() -> activity.startToDeleteUser()}"
                 android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="0dp"

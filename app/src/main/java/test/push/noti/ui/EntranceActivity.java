@@ -1,7 +1,9 @@
 package test.push.noti.ui;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -10,8 +12,11 @@ import androidx.lifecycle.Observer;
 import androidx.paging.DataSource;
 import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import io.reactivex.Completable;
 import test.push.noti.BR;
+import test.push.noti.CustomState;
 import test.push.noti.R;
+import test.push.noti.RvItemDecoration;
 import test.push.noti.base.BaseActivity;
 import test.push.noti.data.db.User;
 import test.push.noti.databinding.ActivityEntranceBinding;
@@ -25,6 +30,7 @@ public class EntranceActivity extends BaseActivity {
 
     @Inject public UserAdapter userAdapter;
 
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_entrance;
@@ -35,10 +41,25 @@ public class EntranceActivity extends BaseActivity {
         binding = DataBindingUtil.setContentView(this, getLayoutId());
         binding.setVariable(BR.activity, this);
 
+        binding.rvUserList.addItemDecoration(new RvItemDecoration(10, this));
+
         viewModel.userList.observe(this, new Observer<PagedList<User>>() {
             @Override
             public void onChanged(PagedList<User> users) {
                 userAdapter.submitList(users);
+            }
+        });
+
+        viewModel.getmStatusOfDelete().observe(this, new Observer<CustomState>() {
+            @Override
+            public void onChanged(CustomState customState) {
+                switch (customState) {
+                    case ING: Toast.makeText(getBaseContext(), "delete ING", Toast.LENGTH_LONG).show(); break;
+                    case SUCCESS: Toast.makeText(getBaseContext(), "delete SUCCESS", Toast.LENGTH_LONG).show(); break;
+                    case ERROR: Toast.makeText(getBaseContext(), "delete error", Toast.LENGTH_LONG).show(); break;
+                    case CANCEL: Toast.makeText(getBaseContext(), "select user to deleting", Toast.LENGTH_LONG).show(); break;
+                }
+                userAdapter.removeSelect();
             }
         });
     }
@@ -49,5 +70,15 @@ public class EntranceActivity extends BaseActivity {
 
     public UserAdapter getRvAdapter() {
         return userAdapter;
+    }
+
+    public void startToDeleteUser(){
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                viewModel.deleteUser(userAdapter.getSelectedUser());
+                return null;
+            }
+        }.execute();
     }
 }

@@ -2,11 +2,15 @@ package test.push.noti.ui;
 
 import android.util.Log;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
 import androidx.paging.RxPagedListBuilder;
+import io.reactivex.Completable;
 import io.reactivex.Observable;
+import io.reactivex.observers.DisposableCompletableObserver;
+import test.push.noti.CustomState;
 import test.push.noti.data.AppRepository;
 import test.push.noti.data.db.User;
 
@@ -19,6 +23,10 @@ public class EntranceActivityViewModel extends ViewModel {
 //    public final Observable<PagedList<User>> userList;
     public LiveData<PagedList<User>> userList;
     static final int PAGING_ITEM = 10;
+
+    private MutableLiveData<CustomState> mStatusOfDelete = new MutableLiveData<>();
+
+
 
     @Inject
     public EntranceActivityViewModel(AppRepository appRepository) {
@@ -34,8 +42,27 @@ public class EntranceActivityViewModel extends ViewModel {
     }
 
     public void deleteUser(User user) {
-        appRepository.deleteUserAtRoom(user);
+        if(user == null) {
+            mStatusOfDelete.postValue(CustomState.CANCEL);
+            return;
+        }
+
+        mStatusOfDelete.postValue(CustomState.ING);
+
+        appRepository.deleteUserAtRoom(user).subscribe(new DisposableCompletableObserver() {
+            @Override
+            public void onComplete() {
+                mStatusOfDelete.postValue(CustomState.SUCCESS);
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mStatusOfDelete.postValue(CustomState.ERROR);
+            }
+        });
     }
 
-
+    public MutableLiveData<CustomState> getmStatusOfDelete() {
+        return mStatusOfDelete;
+    }
 }

@@ -2,23 +2,30 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable name="adapter" type="test.push.noti.ui.UserAdapter"/>
+        <variable name="user" type="test.push.noti.data.db.User"/>
+        <variable name="position" type="java.lang.Integer"/>
+    </data>
+
     <LinearLayout
+            android:onClick="@{() -> adapter.setSelected(user, position)}"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_margin="10dp"
+            android:layout_height="70dp"
+            android:background="@{user.isSelected ? @color/colorAccent : @color/white}"
             android:gravity="center">
 
         <ImageView
                 android:id="@+id/tv_profile_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
                 app:srcCompat="@android:drawable/sym_def_app_icon"/>
 
         <TextView
                 android:id="@+id/tv_user_name"
-                android:text="Beans"
+                android:text="@{user.name}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"/>

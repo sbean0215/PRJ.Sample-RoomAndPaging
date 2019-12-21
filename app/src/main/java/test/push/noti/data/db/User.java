@@ -24,4 +24,7 @@ public class User {
     @Ignore
     public Bitmap baseProfileImg;
 
+    @Ignore
+    public boolean isSelected;
+
 }
