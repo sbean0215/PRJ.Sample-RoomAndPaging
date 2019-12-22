@@ -2,10 +2,7 @@ package test.push.noti.di;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-import test.push.noti.ui.AddNewUserActivity;
-import test.push.noti.ui.AddNewUserActivityModule;
-import test.push.noti.ui.EntranceActivity;
-import test.push.noti.ui.EntranceActivityModule;
+import test.push.noti.ui.*;
 
 @Module
 public abstract class ActivityBuilder {
@@ -15,4 +12,7 @@ public abstract class ActivityBuilder {
 
     @ContributesAndroidInjector (modules = AddNewUserActivityModule.class)
     abstract AddNewUserActivity bindAddNewUserActivity();
+
+    @ContributesAndroidInjector (modules = MessagesActivityModule.class)
+    abstract MessagesActivity bindMessagesActivity();
 }

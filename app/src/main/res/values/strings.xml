@@ -8,5 +8,6 @@
     <string name="entrance_btn_go_to_push_test">Go to Push Test</string>
     <string name="entrance_btn_add_new_user">ADD use user</string>
     <string name="entrance_et_hing_input_user_name">User Name</string>
+    <string name="txt_return_to_select_user">return to select user</string>
 
 </resources>

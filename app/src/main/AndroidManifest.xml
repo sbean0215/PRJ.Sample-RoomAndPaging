@@ -19,6 +19,7 @@
         </activity>
 
         <activity android:name=".ui.AddNewUserActivity" />
+        <activity android:name=".ui.MessagesActivity" />
     </application>
 
 </manifest>
