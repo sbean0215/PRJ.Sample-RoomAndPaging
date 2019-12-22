@@ -1,4 +1,4 @@
-package test.push.noti;
+package test.push.noti.etc;
 
 public enum CustomState {
     SUCCESS,

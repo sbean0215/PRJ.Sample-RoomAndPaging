@@ -1,4 +1,4 @@
-package test.push.noti;
+package test.push.noti.etc;
 
 import android.content.Context;
 import android.graphics.Rect;

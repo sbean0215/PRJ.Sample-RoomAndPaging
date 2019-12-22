@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
 import test.push.noti.BR;
-import test.push.noti.CustomState;
+import test.push.noti.etc.CustomState;
 import test.push.noti.R;
 import test.push.noti.base.BaseActivity;
 

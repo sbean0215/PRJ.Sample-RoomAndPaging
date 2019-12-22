@@ -1,16 +1,12 @@
 package test.push.noti.ui;
 
-import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.paging.LivePagedListBuilder;
 import androidx.paging.PagedList;
-import androidx.paging.RxPagedListBuilder;
-import io.reactivex.Completable;
-import io.reactivex.Observable;
 import io.reactivex.observers.DisposableCompletableObserver;
-import test.push.noti.CustomState;
+import test.push.noti.etc.CustomState;
 import test.push.noti.data.AppRepository;
 import test.push.noti.data.db.User;
 
