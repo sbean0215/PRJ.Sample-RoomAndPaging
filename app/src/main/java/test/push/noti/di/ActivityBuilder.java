@@ -13,6 +13,17 @@ public abstract class ActivityBuilder {
     @ContributesAndroidInjector (modules = AddNewUserActivityModule.class)
     abstract AddNewUserActivity bindAddNewUserActivity();
 
-    @ContributesAndroidInjector (modules = MessagesActivityModule.class)
+    @ContributesAndroidInjector (modules = {
+            MessagesActivityModule.class
+    })
     abstract MessagesActivity bindMessagesActivity();
+
+    @ContributesAndroidInjector(modules = MessagesFragmentsModule.class)
+    abstract MsgAdFragment provideMsgAdFragment();
+
+    @ContributesAndroidInjector(modules = MessagesFragmentsModule.class)
+    abstract MsgNoticeFragment provideMsgNoticeFragment();
+
+    @ContributesAndroidInjector(modules = MessagesFragmentsModule.class)
+    abstract MsgMessagesFragment provideMsgMessagesFragment();
 }
