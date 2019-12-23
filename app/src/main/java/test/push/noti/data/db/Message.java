@@ -9,6 +9,12 @@ import androidx.room.PrimaryKey;
         foreignKeys = @ForeignKey(entity = User.class, parentColumns = "no", childColumns = "user_no"))
 public class Message {
 
+    public Message(int userNo, String messageType, String contents) {
+        this.userNo = userNo;
+        this.messageType = messageType;
+        this.contents = contents;
+    }
+
     @PrimaryKey(autoGenerate = true)
     public int id;      // message id
 

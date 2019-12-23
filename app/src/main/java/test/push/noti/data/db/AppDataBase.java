@@ -12,6 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 public abstract class AppDataBase extends RoomDatabase {
 
     public abstract UserDao getUserDao();
+    public abstract MessageDao getMessageDao();
 
 
 

@@ -7,6 +7,7 @@ import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
 import io.reactivex.Observable;
 import test.push.noti.data.db.AppDataBase;
+import test.push.noti.data.db.Message;
 import test.push.noti.data.db.User;
 
 import javax.inject.Inject;
@@ -40,6 +41,14 @@ public class AppRepository {
 
     public DataSource.Factory<Integer, User> getUserListForPaging() {
         return dataBase.getUserDao().loadAllUsersWithPL();
+    }
+
+    public void insertMessage(Message message) {
+        dataBase.getMessageDao().insertMessage(message);
+    }
+
+    public List<Message> getMessageListFromRoom () {
+        return dataBase.getMessageDao().loadAllMessage();
     }
 
 }

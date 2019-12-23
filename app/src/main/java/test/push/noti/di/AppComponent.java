@@ -10,7 +10,8 @@ import javax.inject.Singleton;
 @Singleton
 @Component (modules = {AndroidSupportInjectionModule.class
         , AppModule.class
-        , ActivityBuilder.class})
+        , ActivityBuilder.class
+        , ServiceBuilder.class })
 public interface AppComponent extends AndroidInjector<PushNotiTestApp> {
 
     @Component.Builder
