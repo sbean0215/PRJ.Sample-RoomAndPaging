@@ -61,6 +61,11 @@ public class EntranceActivity extends BaseActivity {
         startActivity(new Intent(this, AddNewUserActivity.class));
     }
 
+    public void openMessagesActivity() {
+        //TODO function :: 1. selecting user / 2. pass Intent data
+        startActivity(new Intent(this, MessagesActivity.class));
+    }
+
     public UserAdapter getRvAdapter() {
         return userAdapter;
     }

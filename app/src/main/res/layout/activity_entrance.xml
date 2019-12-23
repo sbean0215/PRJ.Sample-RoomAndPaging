@@ -137,6 +137,7 @@
 
         <Button
                 android:id="@+id/btn_goto_main"
+                android:onClick="@{() -> activity.openMessagesActivity() }"
                 android:text="@string/entrance_btn_go_to_push_test"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
