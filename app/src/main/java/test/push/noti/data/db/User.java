@@ -8,8 +8,10 @@ import androidx.room.PrimaryKey;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
 
+import java.io.Serializable;
+
 @Entity (tableName = "users")
-public class User {
+public class User implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int no;  // local id
 

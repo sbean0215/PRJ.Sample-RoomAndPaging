@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.paging.PagedList;
 import test.push.noti.BR;
+import test.push.noti.etc.Constants;
 import test.push.noti.etc.CustomState;
 import test.push.noti.R;
 import test.push.noti.etc.RvItemDecoration;
@@ -65,7 +66,16 @@ public class EntranceActivity extends BaseActivity {
 
     public void openMessagesActivity() {
         //TODO function :: 1. selecting user / 2. pass Intent data
-        startActivity(new Intent(this, MessagesActivity.class));
+        if (userAdapter.getSelectedUser() == null) {
+            Toast.makeText(this, "select user", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Intent intent = new Intent(this, MessagesActivity.class);
+        intent.putExtra(Constants.INTENT_EXTRAS.USER_ID, userAdapter.getSelectedUser().no);
+        intent.putExtra(Constants.INTENT_EXTRAS.USER, userAdapter.getSelectedUser());
+
+        startActivity(intent);
     }
 
     public UserAdapter getRvAdapter() {
