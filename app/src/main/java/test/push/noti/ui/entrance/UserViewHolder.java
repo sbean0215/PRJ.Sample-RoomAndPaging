@@ -1,15 +1,9 @@
-package test.push.noti.ui;
+package test.push.noti.ui.entrance;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
-import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.RecyclerView;
 import test.push.noti.BR;
-import test.push.noti.R;
 import test.push.noti.data.db.User;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {

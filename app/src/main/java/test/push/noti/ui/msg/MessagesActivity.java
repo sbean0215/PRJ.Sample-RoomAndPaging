@@ -1,11 +1,6 @@
-package test.push.noti.ui;
+package test.push.noti.ui.msg;
 
-import android.util.Log;
-import android.view.View;
 import androidx.databinding.DataBindingUtil;
-import androidx.viewpager.widget.ViewPager;
-import com.google.android.material.tabs.TabItem;
-import com.google.android.material.tabs.TabLayout;
 import test.push.noti.BR;
 import test.push.noti.R;
 import test.push.noti.base.BaseActivity;

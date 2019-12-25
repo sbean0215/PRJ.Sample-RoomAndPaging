@@ -7,8 +7,8 @@
         xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="viewModel" type="test.push.noti.ui.MessagesViewModel"/>
-        <variable name="fragment" type="test.push.noti.ui.MsgMessagesFragment"/>
+        <variable name="viewModel" type="test.push.noti.ui.msg.MessagesViewModel"/>
+        <variable name="fragment" type="test.push.noti.ui.msg.MsgMessagesFragment"/>
     </data>
 
     <androidx.recyclerview.widget.RecyclerView

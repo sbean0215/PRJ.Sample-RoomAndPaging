@@ -3,10 +3,10 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.MessagesActivity">
+        tools:context=".ui.msg.MessagesActivity">
 
     <data>
-        <variable name="activity" type="test.push.noti.ui.MessagesActivity"/>
+        <variable name="activity" type="test.push.noti.ui.msg.MessagesActivity"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

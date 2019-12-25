@@ -4,12 +4,12 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.EntranceActivity">
+        tools:context=".ui.entrance.EntranceActivity">
 
     <data>
         <variable
                 name="activity"
-                type="test.push.noti.ui.EntranceActivity"/>
+                type="test.push.noti.ui.entrance.EntranceActivity"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

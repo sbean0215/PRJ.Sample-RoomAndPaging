@@ -3,7 +3,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable name="adapter" type="test.push.noti.ui.UserAdapter"/>
+        <variable name="adapter" type="test.push.noti.ui.entrance.UserAdapter"/>
         <variable name="user" type="test.push.noti.data.db.User"/>
         <variable name="position" type="java.lang.Integer"/>
     </data>

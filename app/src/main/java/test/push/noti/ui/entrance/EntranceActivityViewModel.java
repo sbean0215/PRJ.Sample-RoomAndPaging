@@ -1,4 +1,4 @@
-package test.push.noti.ui;
+package test.push.noti.ui.entrance;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

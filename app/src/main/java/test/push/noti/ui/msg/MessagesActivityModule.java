@@ -1,6 +1,5 @@
-package test.push.noti.ui;
+package test.push.noti.ui.msg;
 
-import android.content.Context;
 import dagger.Module;
 import dagger.Provides;
 import test.push.noti.data.AppRepository;

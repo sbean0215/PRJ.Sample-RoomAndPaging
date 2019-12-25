@@ -1,4 +1,4 @@
-package test.push.noti.ui;
+package test.push.noti.ui.msg;
 
 import android.os.AsyncTask;
 import android.util.Log;

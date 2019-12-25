@@ -1,14 +1,13 @@
 package test.push.noti;
 
-import android.content.Intent;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import test.push.noti.ui.AddNewUserActivity;
-import test.push.noti.ui.EntranceActivity;
+import test.push.noti.ui.addnew.AddNewUserActivity;
+import test.push.noti.ui.entrance.EntranceActivity;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.*;

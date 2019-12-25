@@ -1,4 +1,4 @@
-package test.push.noti.ui;
+package test.push.noti.ui.entrance;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,6 +13,8 @@ import test.push.noti.etc.RvItemDecoration;
 import test.push.noti.base.BaseActivity;
 import test.push.noti.data.db.User;
 import test.push.noti.databinding.ActivityEntranceBinding;
+import test.push.noti.ui.msg.MessagesActivity;
+import test.push.noti.ui.addnew.AddNewUserActivity;
 
 import javax.inject.Inject;
 

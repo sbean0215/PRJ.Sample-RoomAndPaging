@@ -1,4 +1,4 @@
-package test.push.noti.ui;
+package test.push.noti.ui.entrance;
 
 import dagger.Module;
 import dagger.Provides;

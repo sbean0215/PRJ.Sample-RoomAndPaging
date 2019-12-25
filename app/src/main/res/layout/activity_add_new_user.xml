@@ -3,12 +3,12 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.AddNewUserActivity">
+        tools:context=".ui.addnew.AddNewUserActivity">
 
     <data>
         <variable
                 name="activity"
-                type="test.push.noti.ui.AddNewUserActivity"/>
+                type="test.push.noti.ui.addnew.AddNewUserActivity"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

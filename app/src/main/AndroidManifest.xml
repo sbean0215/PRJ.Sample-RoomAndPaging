@@ -11,15 +11,15 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.EntranceActivity">
+        <activity android:name=".ui.entrance.EntranceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.AddNewUserActivity" />
-        <activity android:name=".ui.MessagesActivity" />
+        <activity android:name=".ui.addnew.AddNewUserActivity" />
+        <activity android:name=".ui.msg.MessagesActivity" />
 
         <service
                 android:name=".etc.FcmService"

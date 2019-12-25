@@ -1,4 +1,4 @@
-package test.push.noti.ui;
+package test.push.noti.ui.addnew;
 
 import android.os.AsyncTask;
 import android.widget.EditText;

@@ -1,16 +1,11 @@
-package test.push.noti.ui;
+package test.push.noti.ui.entrance;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
-import androidx.lifecycle.ViewModel;
 import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.DiffUtil;
-import test.push.noti.R;
 import test.push.noti.data.db.User;
 import test.push.noti.databinding.ItemUserBinding;
 

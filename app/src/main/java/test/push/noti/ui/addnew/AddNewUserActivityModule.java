@@ -1,12 +1,8 @@
-package test.push.noti.ui;
+package test.push.noti.ui.addnew;
 
-import androidx.lifecycle.ViewModelProviders;
 import dagger.Module;
 import dagger.Provides;
 import test.push.noti.data.AppRepository;
-import test.push.noti.data.db.AppDataBase;
-
-import javax.inject.Singleton;
 
 @Module
 public class AddNewUserActivityModule {

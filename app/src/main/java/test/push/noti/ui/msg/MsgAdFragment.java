@@ -1,4 +1,4 @@
-package test.push.noti.ui;
+package test.push.noti.ui.msg;
 
 import android.os.Bundle;
 import test.push.noti.R;
