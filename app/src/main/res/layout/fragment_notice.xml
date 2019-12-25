@@ -18,8 +18,8 @@
             android:background="@color/colorAccent"
             android:layout_margin="8dp"
             android:padding="10dp"
+            android:adapter="@{fragment.getRvAdapter()}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:scrollbars="vertical"/>
-<!--            android:adapter="@{fragment.getRvAdapter()}"-->
 
 </layout>

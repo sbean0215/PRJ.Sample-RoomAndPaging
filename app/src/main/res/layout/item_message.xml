@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="adapter" type="test.push.noti.ui.msg.MessageRvAdapter"/>
+        <variable name="message" type="test.push.noti.data.db.Message"/>
+        <variable name="position" type="java.lang.Integer"/>
+    </data>
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+            android:gravity="center">
+
+        <TextView
+                android:id="@+id/tv_msg_contents"
+                android:text='@{message.contents}'
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+    </LinearLayout>
+</layout>

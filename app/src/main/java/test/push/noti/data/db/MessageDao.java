@@ -1,5 +1,6 @@
 package test.push.noti.data.db;
 
+import androidx.paging.DataSource;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -15,5 +16,8 @@ public interface MessageDao {
 
     @Query("SELECT * FROM messages")
     public List<Message> loadAllMessage();
+
+    @Query("SELECT * FROM messages WHERE user_no = :userId AND msg_type = :messageType")
+    public DataSource.Factory<Integer, Message> loadMessageOf(int userId, String messageType);
 
 }

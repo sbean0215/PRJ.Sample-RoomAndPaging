@@ -51,4 +51,7 @@ public class AppRepository {
         return dataBase.getMessageDao().loadAllMessage();
     }
 
+    public DataSource.Factory<Integer, Message> getAdListForPaging(int ofUserId, String messageType) {
+        return dataBase.getMessageDao().loadMessageOf(ofUserId, messageType);
+    }
 }

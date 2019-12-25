@@ -7,4 +7,10 @@ public class Constants {
         public final static String USER = "user";
     }
 
+    public static class MESSAGE_TYPE {
+        public final static String AD = "AD";
+        public final static String NOTICE = "NOTICE";
+        public final static String MESSAGE = "MESSAGE";
+    }
+
 }
