@@ -38,8 +38,8 @@ public class MessagesViewModel extends ViewModel {
         return new LivePagedListBuilder<>(repository.getAdListForPaging(ofUserId, messageType), PAGING_ITEM).build();
     }
 
-    public LiveData<Integer> getCountOf(String messageType, int userId){
-        return repository.getCountOf(messageType, userId);
+    public LiveData<Integer> getCountOfNew(String messageType, int userId){
+        return repository.getCountOfNew(messageType, userId);
     }
 
     public void getMessageList() {
@@ -56,5 +56,9 @@ public class MessagesViewModel extends ViewModel {
 
     public void deleteMessage(Message message) {
         repository.delete(message);
+    }
+
+    public void setRead(Message message) {
+        repository.setRead(message);
     }
 }

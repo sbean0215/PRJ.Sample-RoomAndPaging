@@ -56,12 +56,17 @@ public class AppRepository {
         return dataBase.getMessageDao().loadMessageOf(ofUserId, messageType);
     }
 
-    public LiveData<Integer> getCountOf(String MessageType, int userId) {
-        return dataBase.getMessageDao().countOf(MessageType, userId);
+    public LiveData<Integer> getCountOfNew(String MessageType, int userId) {
+        return dataBase.getMessageDao().countOfNew(MessageType, userId);
     }
 
     public void delete(Message message) {
         dataBase.getMessageDao().deleteMessage(message);
+    }
+
+    public void setRead(Message message) {
+        message.readable = false;
+        dataBase.getMessageDao().update(message);
     }
 
 }

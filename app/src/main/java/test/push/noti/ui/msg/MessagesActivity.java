@@ -85,7 +85,7 @@ public class MessagesActivity extends BaseActivity {
             ((TextView)tabsCustomView.findViewById(R.id.tv_tab_title)).setText(messageType);
 
             //TODO 리팩토링 필요
-            viewModel.getCountOf(messageType, user.no).observe(this, new Observer<Integer>() {
+            viewModel.getCountOfNew(messageType, user.no).observe(this, new Observer<Integer>() {
                 @Override
                 public void onChanged(final Integer count) {
                     runOnUiThread(new Runnable() {
@@ -102,6 +102,18 @@ public class MessagesActivity extends BaseActivity {
                     });
                 }
             });
+        }
+    }
+
+    public void onClick(Message message) {
+        if(message.readable) {
+            new AsyncTask<Message, Void, Void>() {
+                @Override
+                protected Void doInBackground(Message... message) {
+                    viewModel.setRead(message[0]);
+                    return null;
+                }
+            }.execute(message);
         }
     }
 }

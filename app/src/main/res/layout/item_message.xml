@@ -13,6 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linearLayout"
+            android:onClick="@{() -> activity.onClick(message)}"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@color/white"
