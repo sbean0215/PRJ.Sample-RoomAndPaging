@@ -13,6 +13,7 @@ public class Message {
         this.userNo = userNo;
         this.messageType = messageType;
         this.contents = contents;
+        this.readable = true;
     }
 
     @PrimaryKey(autoGenerate = true)
@@ -26,5 +27,8 @@ public class Message {
 
     @ColumnInfo
     public String contents;
+
+    @ColumnInfo( defaultValue = "1" )   // 0 is false, 1 is true
+    public boolean readable;
 
 }

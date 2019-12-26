@@ -4,6 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <import type="android.view.View"/>
         <variable name="activity" type="test.push.noti.ui.msg.MessagesActivity"/>
         <variable name="adapter" type="test.push.noti.ui.msg.MessageRvAdapter"/>
         <variable name="message" type="test.push.noti.data.db.Message"/>
@@ -39,5 +40,17 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginEnd="8dp"
                 android:layout_marginTop="8dp"/>
+
+        <TextView
+                android:text="N"
+                android:id="@+id/ic_new"
+                android:visibility="@{message.readable ? View.VISIBLE : View.GONE}"
+                android:textColor="@color/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/iv_delete"
+                app:layout_constraintTop_toTopOf="@+id/iv_delete"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_delete"
+                android:layout_marginEnd="8dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
