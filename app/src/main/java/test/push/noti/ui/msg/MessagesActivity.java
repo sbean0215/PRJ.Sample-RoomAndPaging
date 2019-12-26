@@ -1,5 +1,6 @@
 package test.push.noti.ui.msg;
 
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -11,6 +12,7 @@ import com.google.android.material.tabs.TabLayout;
 import test.push.noti.BR;
 import test.push.noti.R;
 import test.push.noti.base.BaseActivity;
+import test.push.noti.data.db.Message;
 import test.push.noti.data.db.User;
 import test.push.noti.databinding.ActivityMessagesBinding;
 import test.push.noti.etc.Constants;
@@ -56,6 +58,16 @@ public class MessagesActivity extends BaseActivity {
 
     public void finishActivity() {
         finish();
+    }
+
+    public void startToDelete(Message message) {
+        new AsyncTask<Message, Void, Void>() {
+            @Override
+            protected Void doInBackground(Message... messages) {
+            viewModel.deleteMessage(messages[0]);
+                return null;
+            }
+        }.execute(message);
     }
 
 

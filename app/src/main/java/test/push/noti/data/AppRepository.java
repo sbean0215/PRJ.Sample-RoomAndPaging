@@ -60,4 +60,8 @@ public class AppRepository {
         return dataBase.getMessageDao().countOf(MessageType, userId);
     }
 
+    public void delete(Message message) {
+        dataBase.getMessageDao().deleteMessage(message);
+    }
+
 }

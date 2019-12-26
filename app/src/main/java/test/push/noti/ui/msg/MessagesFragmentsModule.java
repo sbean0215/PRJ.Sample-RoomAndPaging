@@ -1,5 +1,6 @@
 package test.push.noti.ui.msg;
 
+import android.app.Activity;
 import dagger.Module;
 import dagger.Provides;
 
@@ -7,7 +8,7 @@ import dagger.Provides;
 public class MessagesFragmentsModule {
 
     @Provides
-    MessageRvAdapter provideMessageRvAdapter(){
-        return new MessageRvAdapter();
+    MessageRvAdapter provideMessageRvAdapter(MessagesActivity activity){
+        return new MessageRvAdapter(activity);
     }
 }

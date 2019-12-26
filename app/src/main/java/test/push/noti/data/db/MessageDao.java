@@ -3,6 +3,7 @@ package test.push.noti.data.db;
 import androidx.lifecycle.LiveData;
 import androidx.paging.DataSource;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import io.reactivex.Completable;
@@ -24,4 +25,6 @@ public interface MessageDao {
     @Query("SELECT count(*) FROM messages WHERE user_no = :userId AND msg_type = :messageType")
     public LiveData<Integer> countOf(String messageType, int userId);
 
+    @Delete
+    public void deleteMessage(Message message);
 }

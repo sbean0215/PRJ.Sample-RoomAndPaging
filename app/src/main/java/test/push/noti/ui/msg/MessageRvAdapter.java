@@ -1,5 +1,6 @@
 package test.push.noti.ui.msg;
 
+import android.app.Activity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -10,18 +11,23 @@ import androidx.recyclerview.widget.DiffUtil;
 import test.push.noti.data.db.Message;
 import test.push.noti.databinding.ItemMessageBinding;
 
+import javax.inject.Inject;
+
 public class MessageRvAdapter extends PagedListAdapter<Message, MessageRvViewHolder> {
 
+    private Activity activity;
 
-    protected MessageRvAdapter() {
+    @Inject
+    protected MessageRvAdapter(Activity activity) {
         super(DIFF_CALLBACK);
+        this.activity = activity;
     }
 
     @NonNull
     @Override
     public MessageRvViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ViewDataBinding binding = ItemMessageBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        return new MessageRvViewHolder(binding, this);
+        return new MessageRvViewHolder(binding, this, activity);
     }
 
     @Override

@@ -42,7 +42,6 @@ public class MessagesViewModel extends ViewModel {
         return repository.getCountOf(messageType, userId);
     }
 
-
     public void getMessageList() {
         new AsyncTask<Void, Void, Void>() {
             @Override
@@ -53,5 +52,9 @@ public class MessagesViewModel extends ViewModel {
                 return  null;
             }
         }.execute();
+    }
+
+    public void deleteMessage(Message message) {
+        repository.delete(message);
     }
 }
