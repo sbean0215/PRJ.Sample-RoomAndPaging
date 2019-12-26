@@ -1,6 +1,7 @@
 package test.push.noti.data;
 
 import android.util.Log;
+import androidx.lifecycle.LiveData;
 import androidx.paging.DataSource;
 import androidx.paging.PagedList;
 import io.reactivex.Completable;
@@ -54,4 +55,9 @@ public class AppRepository {
     public DataSource.Factory<Integer, Message> getAdListForPaging(int ofUserId, String messageType) {
         return dataBase.getMessageDao().loadMessageOf(ofUserId, messageType);
     }
+
+    public LiveData<Integer> getCountOf(String MessageType, int userId) {
+        return dataBase.getMessageDao().countOf(MessageType, userId);
+    }
+
 }

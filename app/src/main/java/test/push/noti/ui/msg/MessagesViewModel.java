@@ -13,25 +13,33 @@ import test.push.noti.data.db.Message;
 import test.push.noti.data.db.User;
 import test.push.noti.etc.Constants;
 
+import java.util.HashMap;
+
 public class MessagesViewModel extends ViewModel {
 
     private AppRepository repository;
 
     public MutableLiveData<User> userLiveData;
+    public MutableLiveData<HashMap<String, Integer>> tabCountLiveData;
 
     static final int PAGING_ITEM = 10;
 
     public MessagesViewModel(AppRepository repository) {
         this.repository = repository;
         userLiveData = new MutableLiveData<>();
+        tabCountLiveData = new MutableLiveData<>();
     }
 
     public void startToShowMessages(User ofUser) {
         userLiveData.setValue(ofUser);
     }
 
-    public LiveData<PagedList<Message>> getMessages(int OfUserId, @NonNull String MessageType) {
-        return new LivePagedListBuilder<>(repository.getAdListForPaging(OfUserId, MessageType), PAGING_ITEM).build();
+    public LiveData<PagedList<Message>> getMessages(int ofUserId, @NonNull String messageType) {
+        return new LivePagedListBuilder<>(repository.getAdListForPaging(ofUserId, messageType), PAGING_ITEM).build();
+    }
+
+    public LiveData<Integer> getCountOf(String messageType, int userId){
+        return repository.getCountOf(messageType, userId);
     }
 
 

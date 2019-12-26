@@ -1,5 +1,6 @@
 package test.push.noti.data.db;
 
+import androidx.lifecycle.LiveData;
 import androidx.paging.DataSource;
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -17,7 +18,10 @@ public interface MessageDao {
     @Query("SELECT * FROM messages")
     public List<Message> loadAllMessage();
 
-    @Query("SELECT * FROM messages WHERE user_no = :userId AND msg_type = :messageType")
+    @Query("SELECT * FROM messages WHERE user_no = :userId AND msg_type = :messageType ORDER BY id DESC")
     public DataSource.Factory<Integer, Message> loadMessageOf(int userId, String messageType);
+
+    @Query("SELECT count(*) FROM messages WHERE user_no = :userId AND msg_type = :messageType")
+    public LiveData<Integer> countOf(String messageType, int userId);
 
 }
