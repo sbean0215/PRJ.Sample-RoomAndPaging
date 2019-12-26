@@ -50,12 +50,17 @@ public class EntranceActivity extends BaseActivity {
             @Override
             public void onChanged(CustomState customState) {
                 switch (customState) {
-                    case ING: Toast.makeText(getBaseContext(), "delete ING", Toast.LENGTH_LONG).show(); break;
-                    case SUCCESS: Toast.makeText(getBaseContext(), "delete SUCCESS", Toast.LENGTH_LONG).show(); break;
-                    case ERROR: Toast.makeText(getBaseContext(), "delete error", Toast.LENGTH_LONG).show(); break;
-                    case CANCEL: Toast.makeText(getBaseContext(), "select user to deleting", Toast.LENGTH_LONG).show(); break;
+                    case ING:
+                        Toast.makeText(getBaseContext(), "delete ING", Toast.LENGTH_LONG).show(); break;
+                    case SUCCESS:
+                        Toast.makeText(getBaseContext(), "delete SUCCESS", Toast.LENGTH_LONG).show();
+                        userAdapter.removeSelect();
+                        break;
+                    case ERROR:
+                        Toast.makeText(getBaseContext(), "delete error", Toast.LENGTH_LONG).show(); break;
+                    case CANCEL:
+                        Toast.makeText(getBaseContext(), "select user to deleting", Toast.LENGTH_LONG).show(); break;
                 }
-                userAdapter.removeSelect();
             }
         });
     }

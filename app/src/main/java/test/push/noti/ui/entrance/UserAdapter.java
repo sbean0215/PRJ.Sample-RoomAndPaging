@@ -1,5 +1,6 @@
 package test.push.noti.ui.entrance;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
@@ -55,6 +56,7 @@ public class UserAdapter extends PagedListAdapter<User, UserViewHolder> {
     }
 
     public void removeSelect() {
+        Log.i("BEAN" , "=================removeSelect");
         selectedUser = null;
         positionOfSelectedUser = -1;
     }
