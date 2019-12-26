@@ -12,3 +12,19 @@
 * Libraris : Dagger2, Databinding, FCM, LiveData
 
 
+---
+##### FCM 메세지 전송시 구조
+
+```
+{
+  "message":{
+    "token":"bk3RNwTe3H0:CI2k_HHwgIpoDKCIZvvDMExUdFQ3P1...",
+    "data":{
+      "target_user_id" : "3",
+      "msg_type" : "AD",
+      "contents" : "Blah blah"
+    }
+  }
+}
+```
+* msg_type : "AD", "NOTICE", "MESSAGE"
