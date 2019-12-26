@@ -3,7 +3,7 @@
 
 **Room** 과 **Paging Library** 기본 사용법을 위한 샘플 프로젝트입니다.
 
-![screenshot](./img/Screenshot.jpg)
+![screenshot](https://github.com/sbean0215/Sample-PRJ-RoomAndPaging/blob/master/screenshot/Screenshot.jpg)
 ---
 ##### 함께 사용한 것
 
