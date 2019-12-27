@@ -42,14 +42,20 @@ public class MessageRvAdapter extends PagedListAdapter<Message, MessageRvViewHol
     private static DiffUtil.ItemCallback<Message> DIFF_CALLBACK = new DiffUtil.ItemCallback<Message>() {
         @Override
         public boolean areItemsTheSame(@NonNull Message oldItem, @NonNull Message newItem) {
-            // 이전 아이템과 새로운 아이템이 같은 것 인지 확인.
+            // 이전 아이템과 새로운 아이템이 같은 항목을 나타내는 것인지 확인.
             return oldItem.id == newItem.id;
         }
 
         @Override
         public boolean areContentsTheSame(@NonNull Message oldItem, @NonNull Message newItem) {
-            // 같은 객체 인지
-            return oldItem.equals(newItem);
+            // 항목의 내용이 변경되었는지 감지하는데 사용됨
+            // areItemsTheSame == true 일 경우, 내용이 같은지 확인할때 호출됨
+            // UI 상 표현되는 데이터가 같은지 여부를 반환해야 한다.
+
+            if(oldItem.readable == newItem.readable && oldItem.contents.equals(newItem.contents))
+                return oldItem.equals(newItem);
+
+            return false;
         }
     };
 }

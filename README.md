@@ -1,7 +1,7 @@
 # Sample-PRJ-RoomAndPaging
 
 
-**Room** 과 **Paging Library** 기본 사용법을 위한 샘플 프로젝트입니다.
+**Room** 과 **Paging Library** 기본 사용법 숙지를 위한 샘플 프로젝트입니다.
 
 ![screenshot](https://github.com/sbean0215/Sample-PRJ-RoomAndPaging/blob/master/screenshot/Screenshot.jpg)
 ---

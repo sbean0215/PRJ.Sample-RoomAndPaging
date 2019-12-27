@@ -64,14 +64,20 @@ public class UserAdapter extends PagedListAdapter<User, UserViewHolder> {
     private static DiffUtil.ItemCallback<User> DIFF_CALLBACK = new DiffUtil.ItemCallback<User>() {
         @Override
         public boolean areItemsTheSame(@NonNull User oldItem, @NonNull User newItem) {
-            // 이전 아이템과 새로운 아이템이 같은 것 인지 확인.
+            // 이전 아이템과 새로운 아이템이 같은 항목을 나타내는 것인지 확인.
             return oldItem.no == newItem.no;
         }
 
         @Override
         public boolean areContentsTheSame(@NonNull User oldItem, @NonNull User newItem) {
-            // 같은 객체 인지
-            return oldItem.equals(newItem);
+            // 항목의 내용이 변경되었는지 감지하는데 사용됨
+            // areItemsTheSame == true 일 경우, 내용이 같은지 확인할때 호출됨
+            // UI 상 표현되는 데이터가 같은지 여부를 반환해야 한다.
+
+            if(oldItem.name.equals(newItem.name))
+                return oldItem.equals(newItem);
+
+            return false;
         }
     };
 }
