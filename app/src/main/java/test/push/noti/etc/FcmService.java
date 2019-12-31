@@ -31,8 +31,8 @@ public class FcmService extends FirebaseMessagingService {
             return;
         }
 
-        Map data = remoteMessage.getData();
-        Message message = new Message(Integer.parseInt((String)data.get("target_user_id")), (String)data.get("msg_type"), (String)data.get("contents"));
+        Map<String, String> data = remoteMessage.getData();
+        Message message = new Message(Integer.parseInt(data.get("target_user_id")), data.get("msg_type"), data.get("contents"));
 
         repository.insertMessage(message);
     }
