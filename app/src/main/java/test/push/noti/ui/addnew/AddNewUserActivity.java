@@ -27,9 +27,9 @@ public class AddNewUserActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
         binding = DataBindingUtil.setContentView(this, getLayoutId());
         binding.setVariable(BR.activity, this);
+        binding.executePendingBindings();
 
         viewModel.getmStatusOfInsert().observe(this, new Observer<CustomState>() {
             @Override

@@ -48,6 +48,8 @@ public class MsgNoticeFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding =  DataBindingUtil.inflate(inflater, getFragLayoutId(), container, false);
         binding.setVariable(BR.fragment, this);
+        binding.executePendingBindings();
+
         return binding.getRoot();
     }
 

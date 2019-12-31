@@ -40,6 +40,7 @@ public class MessagesActivity extends BaseActivity {
     public void initView() {
         binding = DataBindingUtil.setContentView(this, getLayoutId());
         binding.setVariable(BR.activity, this);
+        binding.executePendingBindings();
 
         binding.viewpagerMessages.setAdapter(getVpAdapter());
         binding.tabLayoutMessageType.setupWithViewPager(binding.viewpagerMessages);

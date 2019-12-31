@@ -36,6 +36,7 @@ public class EntranceActivity extends BaseActivity {
     public void initView() {
         binding = DataBindingUtil.setContentView(this, getLayoutId());
         binding.setVariable(BR.activity, this);
+        binding.executePendingBindings();
 
         binding.rvUserList.addItemDecoration(new RvItemDecoration(10, this));
 
